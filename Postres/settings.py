@@ -27,29 +27,28 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
-    'main'
+    'main',
+    'corsheaders',
 ]
 
 CORS_ORIGIN_ALLOW_ALL=True
 
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES':[
-	   'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-	   ],
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-        )
-}
+REST_FRAMEWORK = {'DEFAULT_PERMISSION_CLASSES': 
+        ['rest_framework.authentication.TokenAuthentication']}
 
-MIDDLEWARE = [
+MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #cors
+
+    #
+    
 ]
 
 ROOT_URLCONF = 'Postres.urls'
