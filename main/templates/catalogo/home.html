@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block titulo %}	
+	REST API
+{% endblock titulo %}	
+
+{% block content %}
+	<h1>Casamia pastelería y repostería</h1>
+	<div align="center">
+	<ul>
+	{% for Catalogo in lista%}
+		<h3>{{Catalogo.postre}} / {{Catalogo.precio}} / {{Catalogo.vigencia}}</h3>
+	
+		{% empty %}
+		<h1>No hay postres</h1>
+	{% endfor%}
+	</ul>
+	</div>
+
+{% endblock content %}
