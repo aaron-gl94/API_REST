@@ -11,3 +11,4 @@ class CatalogoListView(generics.ListAPIView):
 class CatalogoDetailView(generics.RetrieveAPIView):
 	queryset = Catalogo.objects.all()
 	serializer_class = CatalogoSerializer
+	permission_classes = (IsAuthenticated,)
